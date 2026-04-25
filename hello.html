@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Story Title</title>
+    <style>
+        /* Basic Reset */
+        body, h1, p { margin: 0; padding: 0; }
+
+        body {
+            background-color: #f4f1ea; /* Soft "paper" color for eye comfort */
+            color: #2c2c2c;
+            font-family: 'Georgia', serif; /* Serif fonts are better for long-form reading */
+            line-height: 1.8;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* The Reading Container */
+        .story-container {
+            max-width: 700px; /* Limits line length for better focus */
+            padding: 50px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-indent: 2em; /* Traditional book formatting */
+        }
+
+        p:first-of-type {
+            text-indent: 0; /* Standard: first paragraph of a chapter isn't indented */
+        }
+
+        .chapter-break {
+            text-align: center;
+            margin: 50px 0;
+            font-weight: bold;
+            letter-spacing: 5px;
+        }
+
+        /* Progress Bar (Optional) */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: #8b0000;
+            width: 0%;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="myBar"></div>
+
+<article class="story-container">
+    <h1>Title of Your Epic Saga</h1>
+
+    <p>It was a dark and stormy night...</p>
+    
+    <p>Keep adding paragraphs here. For 50,000 characters, you likely 
+    have around 8,000 to 10,000 words. Using <p> tags is vital for 
+    browser performance and accessibility.</p>
+
+    <div class="chapter-break">***</div>
+
+    <p>This is where the second chapter would begin.</p>
+
+</article>
+
+<script>
+    // Script to handle the progress bar as the reader scrolls
+    window.onscroll = function() { moveProgressBar() };
+
+    function moveProgressBar() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("myBar").style.width = scrolled + "%";
+    }
+</script>
+
+</body>
+</html>
